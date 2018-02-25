@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InventoryManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="GetEmployeeReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FromDate" Type="datetime" Mode="In" />
+          <Parameter Name="ToDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="GetIssuedReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FromDate" Type="datetime" Mode="In" />
+          <Parameter Name="ToDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="GetReceieveReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FromDate" Type="datetime" Mode="In" />
+          <Parameter Name="ToDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="GetSalaryReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FromDate" Type="datetime" Mode="In" />
+          <Parameter Name="ToDate" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="InventoryManagementModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InventoryManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="InventoryManagementEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="GetSalaryReport" ReturnType="Collection(InventoryManagementModel.GetSalaryReport_Result)">
+            <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetIssuedReport" ReturnType="Collection(InventoryManagementModel.GetIssuedReport_Result)">
+            <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetReceieveReport" ReturnType="Collection(InventoryManagementModel.GetReceieveReport_Result)">
+            <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetEmployeeReport" ReturnType="Collection(InventoryManagementModel.GetEmployeeReport_Result)">
+            <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetSalaryReport_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="EmployeeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="EmployeeGrade" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="BasicSalary" Nullable="false" />
+          <Property Type="Int32" Name="Benefits" Nullable="false" />
+          <Property Type="Int32" Name="Deduction" Nullable="false" />
+          <Property Type="Int32" Name="TotalSalary" Nullable="false" />
+          <Property Type="DateTime" Name="Dated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetIssuedReport_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="pk_id" Nullable="false" />
+          <Property Type="String" Name="Weight" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetReceieveReport_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="pk_id" Nullable="false" />
+          <Property Type="String" Name="weight" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="date" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetEmployeeReport_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="state" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Designation" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Mob" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="qualification" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Path" Nullable="false" />
+          <Property Type="DateTime" Name="Dated" Nullable="false" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InventoryManagementModelStoreContainer" CdmEntityContainer="InventoryManagementEntities" >
+          <FunctionImportMapping FunctionImportName="GetSalaryReport" FunctionName="InventoryManagementModel.Store.GetSalaryReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="InventoryManagementModel.GetSalaryReport_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeGrade" ColumnName="EmployeeGrade" />
+                <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+                <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+                <ScalarProperty Name="Deduction" ColumnName="Deduction" />
+                <ScalarProperty Name="TotalSalary" ColumnName="TotalSalary" />
+                <ScalarProperty Name="Dated" ColumnName="Dated" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetIssuedReport" FunctionName="InventoryManagementModel.Store.GetIssuedReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="InventoryManagementModel.GetIssuedReport_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetReceieveReport" FunctionName="InventoryManagementModel.Store.GetReceieveReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="InventoryManagementModel.GetReceieveReport_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetEmployeeReport" FunctionName="InventoryManagementModel.Store.GetEmployeeReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="InventoryManagementModel.GetEmployeeReport_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Mob" ColumnName="Mob" />
+                <ScalarProperty Name="qualification" ColumnName="qualification" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Dated" ColumnName="Dated" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
