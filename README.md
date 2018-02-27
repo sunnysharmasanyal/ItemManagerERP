@@ -2,7 +2,7 @@
 Intership Project
                                    ItemManager(MiniERPSystem)
                                    
-                              Mini ERP an internship project
+                              Mini ERP an internship project made of three tier artitecture.
                               
 Technologies used : Windows Application C#.net, SQL, MetroUI-Framework,RDLC Reports etc...
 The Project is made with the three-tier architecture. the project incorporated different layers to have full assistance in future development if project needs to be extended. the project has three layer listed below 
