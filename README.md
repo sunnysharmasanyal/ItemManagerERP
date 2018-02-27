@@ -2,7 +2,7 @@
 Intership Project
                                    ItemManager(MiniERPSystem)
                                    
-                              Mini ERP System is for small scale inventory recording and management its used to keep records save according to the customer requirement provided at the time of development ... the project detail artitecture view is given below.
+                              Mini ERP an internship project
                               
 Technologies used : Windows Application C#.net, SQL, MetroUI-Framework,RDLC Reports etc...
 The Project is made with the three-tier architecture. the project incorporated different layers to have full assistance in future development if project needs to be extended. the project has three layer listed below 
